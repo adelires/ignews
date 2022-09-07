@@ -7,7 +7,7 @@ import { saveSubscription } from "./_lib/manageSubscription";
 async function buffer(readable: Readable) {
     const chunks = [];
 
-    for await (const chunk of readable) {
+      for await (const chunk of readable) {
         chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
     };
 
@@ -73,7 +73,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             } catch (e) {
                 return res.json({ error: 'webhook handler failed.' })
             }
-            console.log('Evento recebido', event);
         }
 
         res.json({ received: true })
